@@ -1,0 +1,147 @@
+parameters:
+- name: deploymentProfile
+  type: string
+- name: artifactAlias
+  type: string
+- name: servicePrefix
+  type: string
+- name: serviceName
+  type: string
+- name: channelName
+  type: string
+- name: useVariableGroups
+  type: boolean
+- name: deploymentConfiguration
+  type: object
+- name: releaseConfiguration
+  type: object
+  default: {}
+- name: excludeEnvironments
+  type: object
+  default: []
+- name: enableQualityGate
+  type: boolean
+  default: true
+- name: templateParams
+  type: object
+  default:
+  - deploymentProfile
+  - servicePrefix
+  - serviceName
+  - artifactAlias
+  - channelName
+  - useVariableGroups
+  - deploymentConfiguration
+  - enableQualityGate
+
+stages:
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'pact1_blue')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: pact1_blue
+      environmentName: pact1-blue
+      agentPool: pact-1-release-agents
+      AWSAccountId: 244495625630
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'pat2')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: pat2
+      environmentName: pat2
+      agentPool: pat-2-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'pat3')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: pat3
+      environmentName: pat3
+      agentPool: pat-3-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc1')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc1
+      environmentName: qc1
+      agentPool: non-prod-1
+      AWSAccountId: 855389350164
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc2')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc2
+      environmentName: qc2
+      agentPool: non-prod-1
+      AWSAccountId: 855389350164
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc3')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc3
+      environmentName: qc3
+      agentPool: non-prod-1
+      AWSAccountId: 855389350164
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc4')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc4
+      environmentName: qc4
+      agentPool: qc-4-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc5')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc5
+      environmentName: qc5
+      agentPool: qc-5-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc6')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc6
+      environmentName: qc6
+      agentPool: qc-6-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'qc7')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: qc7
+      environmentName: qc7
+      agentPool: qc-7-release-agents
+      AWSAccountId: 811512945846
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
+
+- ${{ if not(containsValue(parameters.excludeEnvironments , 'pace1_blue')) }}:
+  - template: /release-profiles/environment.yaml@yaml-pipeline-templates
+    parameters:
+      stageName: pace1_blue
+      environmentName: pace1-blue
+      agentPool: pace-1-release-agents
+      AWSAccountId: 244495625630
+      ${{ each value in parameters.templateParams }}:
+        ${{ value }}: ${{ parameters[value] }}
