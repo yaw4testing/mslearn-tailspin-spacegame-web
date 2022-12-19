@@ -1,0 +1,81 @@
+- ParameterKey: Environment
+  ParameterValue: "${DxLShortEnvironmentName}${DxLEnvironmentFlavour}"
+
+- ParameterKey: DxLShortEnvironmentName
+  ParameterValue: "${DxLShortEnvironmentName}"
+
+- ParameterKey: Domain
+  ParameterValue: "${Domain}"
+
+- ParameterKey: Division
+  ParameterValue: "${Division}"
+
+- ParameterKey: Program
+  ParameterValue: "${Program}"
+
+- ParameterKey: ReportingEsVpcEndpointId
+  ParameterValue: "${ReportingEsVpcEndpointId}"
+
+# SSM PARAMETERS
+- ParameterKey: VpcIdSsm
+  ParameterValue: "/dx/infra/${DxlVpcId}/vpc-id"
+
+- ParameterKey: VpcCidr
+  ParameterValue: "/dx/infra/modules/${DxlVpcId}/vpc-cidr"
+
+- ParameterKey: Subnets
+  ParameterValue: "/dx/infra/subnets/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/private-app"
+
+- ParameterKey: BastionSecurityGroup
+  ParameterValue: "/dx/infra/bastion/${DxlVpcId}/${DxlVpcId}-bastion-sg-id"
+
+- ParameterKey: VstsToolingSecurityGroup
+  ParameterValue: "/dx/infra/vsts/${DxlVpcId}/${DxlVpcId}-agents-sg-id"
+
+- ParameterKey: NlbSubnetsCidrCollection
+  ParameterValue: "/dx/infra/modules/${DxlVpcId}/private-subnet"
+
+- ParameterKey: AppPrivateSubnetsCidrCollection
+  ParameterValue: "/dx/infra/modules/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/private-subnet"
+
+- ParameterKey: HostedZoneIdSsm
+  ParameterValue: "/dx/infra/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/private-hosted-zone-id"
+
+- ParameterKey: HostedZoneNameSsm
+  ParameterValue: "/dx/infra/modules/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/private-hosted-zone-name"
+
+- ParameterKey: CommonHostedZoneIdSsm
+  ParameterValue: "/dx/infra/modules/${DxLShortEnvironmentName}-common/private-hosted-zone-id"
+
+- ParameterKey: CommonHostedZoneNameSsm
+  ParameterValue: "/dx/infra/modules/${DxLShortEnvironmentName}-common/private-hosted-zone-name"
+
+- ParameterKey: DalApplicationLoadBalancerUrl
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/dal-alb-url"
+
+- ParameterKey: DalApplicationLoadBalancerCanonicalHostedZoneId
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/dal-alb-canonical-hosted-zone-id"
+
+- ParameterKey: ShopApplicationLoadBalancerUrl
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/shop-alb-url"
+
+- ParameterKey: ShopApplicationLoadBalancerCanonicalHostedZoneId
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/shop-alb-canonical-hosted-zone-id"
+
+- ParameterKey: IdmApplicationLoadBalancerUrl
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}-common/idm-alb-url"
+
+- ParameterKey: IdmApplicationLoadBalancerCanonicalHostedZoneId
+  ParameterValue: "/dx/infra/load-balancer/${DxLShortEnvironmentName}-common/idm-alb-canonical-hosted-zone-id"
+
+- ParameterKey: PrivateCertificateArn
+  ParameterValue: "/dx/infra/acm/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/ssl-arn-internal"
+
+- ParameterKey: OpensearchDomain
+  ParameterValue: "dal-${DxLShortEnvironmentName}${DxLEnvironmentFlavour}"
+
+- ParameterKey: OpensearchSecurityGroupId
+  ParameterValue: "/dx/elasticsearch/${DxLShortEnvironmentName}${DxLEnvironmentFlavour}/dal-${DxLShortEnvironmentName}${DxLEnvironmentFlavour}-sg"
+
+- ParameterKey: AlbLoggingBucket
+  ParameterValue: "/dx/infra/s3/${DxLVpcId}/alb-access-logging-storage"
