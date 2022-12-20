@@ -1,6 +1,0 @@
-variables:
-  Team: PaCE
-  Domain: dx
-  Division: shared
-  Program: shared
-  ReportingEsVpcEndpointId: com.amazonaws.vpce.eu-west-1.vpce-svc-0efd29d6ab01c89b3
